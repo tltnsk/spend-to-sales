@@ -1,3 +1,13 @@
 spring:
   application:
     name: attribution-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/attribution_db
+    username: spend
+    password: spend
+  jpa:
+    hibernate:
+      ddl-auto: validate
+
+server:
+  port: 8083
