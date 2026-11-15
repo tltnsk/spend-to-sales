@@ -8,6 +8,9 @@ spring:
   jpa:
     hibernate:
       ddl-auto: validate
+  web:
+    error:
+      include-message: always
 
 server:
   port: 8081
