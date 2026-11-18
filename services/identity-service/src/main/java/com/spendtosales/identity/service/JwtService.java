@@ -20,10 +20,12 @@ public class JwtService {
     {
         Instant now = Instant.now();
 
+        // expires in 900 seconds = 15 mins
         JwtClaimsSet claims = JwtClaimsSet.builder()
                 .subject(user.getId().toString())
                 .claim("businessId", user.getBusinessId().toString())
                 .issuedAt(now)
+                .issuer("identity-service")
                 .expiresAt(now.plusSeconds(900))
                 .build();
 

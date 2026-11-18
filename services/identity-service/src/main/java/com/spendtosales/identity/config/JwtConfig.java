@@ -20,7 +20,6 @@ public class JwtConfig {
 
     @Bean
     public RSAKey rsaKey() throws Exception {
-
         KeyPairGenerator generator = KeyPairGenerator.getInstance("RSA");
         generator.initialize(2048);
 
