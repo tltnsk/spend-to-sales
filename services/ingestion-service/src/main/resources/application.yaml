@@ -8,6 +8,10 @@ spring:
   jpa:
     hibernate:
       ddl-auto: validate
-
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:8081/.well-known/jwks.json
 server:
   port: 8082
