@@ -13,5 +13,12 @@ spring:
       resourceserver:
         jwt:
           jwk-set-uri: http://localhost:8081/.well-known/jwks.json
+  servlet:
+    multipart:
+      max-file-size: 10MB # because spring accepts files up to 1MB by default
+      max-request-size: 10MB
+  web:
+    error:
+      include-message: always
 server:
   port: 8082
