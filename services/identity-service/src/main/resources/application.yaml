@@ -3,8 +3,8 @@ spring:
     name: identity-service
   datasource:
     url: jdbc:postgresql://localhost:5432/identity_db
-    username: spend
-    password: spend
+    username: ${DB_USERNAME:spend}
+    password: ${DB_PASSWORD:spend}
   jpa:
     hibernate:
       ddl-auto: validate

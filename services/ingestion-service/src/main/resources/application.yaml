@@ -3,11 +3,22 @@ spring:
     name: ingestion-service
   datasource:
     url: jdbc:postgresql://localhost:5432/ingestion_db
-    username: spend
-    password: spend
+    username: ${DB_USERNAME:spend}
+    password: ${DB_PASSWORD:spend}
   jpa:
     hibernate:
       ddl-auto: validate
-
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:8081/.well-known/jwks.json
+  servlet:
+    multipart:
+      max-file-size: 10MB # because spring accepts files up to 1MB by default
+      max-request-size: 10MB
+  web:
+    error:
+      include-message: always
 server:
   port: 8082
