@@ -2,10 +2,10 @@ services:
   postgres:
     image: postgres:17
     environment:
-      - POSTGRES_USER=spend
-      - POSTGRES_PASSWORD=spend
+      - POSTGRES_USER=${DB_USERNAME:-spend}
+      - POSTGRES_PASSWORD=${DB_PASSWORD:-spend}
     ports:
-      - "5432:5432"
+      - "127.0.0.1:5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
       - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
