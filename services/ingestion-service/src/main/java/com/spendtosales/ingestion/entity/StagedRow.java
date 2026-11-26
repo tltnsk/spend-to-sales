@@ -38,6 +38,18 @@ public class StagedRow {
         this.status = "PENDING";
     }
 
+    public void markValid(Map<String, String> normalized) {
+        this.normalized = normalized;
+        this.status = "VALID";
+        this.error = null;
+    }
+
+    public void markRejected(String error) {
+        this.normalized = null;
+        this.status = "REJECTED";
+        this.error = error;
+    }
+
     public UUID getId() { return id; }
     public UUID getUploadId() { return uploadId; }
     public int getRowNumber() { return rowNumber; }
